@@ -1,0 +1,24 @@
+
+        .banner {
+            background: linear-gradient(rgba(0, 0, 0, 0.299), rgba(86, 177, 234, 0.525)), url('../img/banner-clinica.png');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .doctor-card img {
+            height: 250px;
+            width: 180px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+        .section-padding { padding: 60px 0; }
+
+        .a {
+            color: green;
+        }
+ 

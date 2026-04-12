@@ -1,0 +1,28 @@
+services:
+  db:
+    image: postgres:15
+    container_name: db_clinica
+    restart: always
+    environment:
+      POSTGRES_USER: usuario_clinica
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: clinica_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  web:
+    build: .
+    container_name: app_clinica
+    restart: always
+    ports:
+      - "5000:5000"
+    environment:
+      # URL de conexão: postgresql://usuario:senha@nome_do_servico:porta/nome_do_db
+      DATABASE_URL: postgresql://usuario_clinica:123456@db:5432/clinica_db
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:

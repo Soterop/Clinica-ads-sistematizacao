@@ -1,0 +1,19 @@
+# 🏥 Sistema de Agendamento Clínico
+
+Projeto desenvolvido para a disciplina de Programação e Desenvolvimento Web (Sistematização - CEUB).
+
+## 🛠️ Tecnologias Utilizadas
+- **Backend:** Python 3.10 + Flask
+- **Banco de Dados:** PostgreSQL 15
+- **ORM:** SQLAlchemy
+- **Containerização:** Docker & Docker Compose
+- **Frontend:** HTML5, CSS3 (Bootstrap 5)
+
+## 📦 Como Rodar o Projeto
+Certifique-se de ter o Docker instalado no seu sistema (Linux/Windows/Mac).
+
+1. Clone o repositório:
+   ```bash
+   git clone [https://github.com/Soterop/Clinica-ads-sistematizacao.git](https://github.com/Soterop/Clinica-ads-sistematizacao.git)
+
+
