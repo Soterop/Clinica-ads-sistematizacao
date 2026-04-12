@@ -1,24 +1,90 @@
+    .banner {
+        background: linear-gradient(rgba(0, 0, 0, 0.561), rgba(2, 87, 64, 0.525)), url('../img/banner-clinica.png');
+        background-color: #2d5a27;
+        background-size: cover;
+        background-position: center;
+        height: 300px;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
 
-        .banner {
-            background: linear-gradient(rgba(0, 0, 0, 0.299), rgba(86, 177, 234, 0.525)), url('../img/banner-clinica.png');
-            background-size: cover;
-            background-position: center;
-            height: 300px;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-        .doctor-card img {
-            height: 250px;
-            width: 180px;
-            object-fit: cover;
-            border-radius: 15px;
-        }
-        .section-padding { padding: 60px 0; }
+    }
 
-        .a {
-            color: green;
-        }
- 
+    .navbar-brand fw-bold {
+        background-color: #2d5a27 !important;
+        border-color: #2d5a27 !important;
+
+    }
+
+    :root {
+    --bs-primary: #16a085;       /* Sua nova cor principal */
+    --bs-primary-rgb: 22, 160, 133; /* A mesma cor em RGB (necessário para transparências) */
+}
+
+
+    .btn-primary {
+        background-color: #2d5a27 !important;
+        border-color: #2d5a27 !important;
+
+    }
+
+
+    .doctor-card img {
+        height: 250px;
+        width: 180px;
+        object-fit: cover;
+        border-radius: 15px;
+    }
+    .section-padding { padding: 60px 0; }
+
+
+
+
+
+    .painel-clinica {
+    /* Cores e Fundo */
+    background-color: #ffffff00;
+
+    
+    /* Espaçamento e Bordas */
+    padding: 10px;
+    max-width: 300px;
+    margin: 10px auto;
+    border-radius: 15px;
+    
+    /* Sombra suave para dar profundidade */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    
+    /* Alinhamento dos itens dentro do painel */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    
+    /* Transição suave caso você adicione efeitos de hover */
+    transition: transform 0.3s ease;
+}
+
+/* Efeito ao passar o mouse */
+.painel-clinica:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+.bg-light {
+    background-color: #f8f9fa !important;
+}
+
+#relogio {
+    letter-spacing: 1px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#mensagem-saudacao {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+}
