@@ -70,22 +70,14 @@ def agendar():
     return redirect(url_for('index'))
 
 @app.route('/consultar', methods=['GET', 'POST'])
-def consultar():
-    raw_cpf = request.form.get('cpf')
-    cpf_limpo = ''.join(filter(str.isdigit, raw_cpf))
-    agendamentos = []
-    cpf_busca = ""
-    if request.method == 'POST':
-        cpf_busca = request.form.get('cpf')
-        agendamentos = Agendamento.query.filter_by(cpf=cpf_busca).all()
-    return render_template('consultar.html', agendamentos=agendamentos, cpf=cpf_busca)
+
 
 
 @app.route('/lista')
 def lista_agendamentos():
     # Busca TODOS os agendamentos do banco sem filtro
     todos = Agendamento.query.all()
-    return render_template('lista.html', agendamentos=todos)
+    return render_template('lista', agendamentos=todos)
 
 @app.route('/cancelar/<int:id_agendamento>', methods=['POST'])
 def cancelar(id_agendamento):
