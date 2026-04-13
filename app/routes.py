@@ -66,7 +66,7 @@ def agendar():
 @app.route('/lista')
 def lista_agendamentos():
     todos = Agendamento.query.all()
-  
+
     return render_template('lista.html', agendamentos=todos)
 
 @app.route('/cancelar/<int:id_agendamento>', methods=['POST'])
