@@ -6,6 +6,8 @@ import os
 
 app = Flask(__name__, static_folder='static', template_folder='templates')
 
+app.config['SECRET_KEY'] = 'brasília-2026-sistematizacao'
+
 
 uri = os.getenv("DATABASE_URL")
 if uri and uri.startswith("postgres://"):
