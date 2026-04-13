@@ -44,7 +44,7 @@
                             <td>{{ a.nome }}</td>
                             <td>{{ a.cpf }}</td>
                             <td>{{ a.profissional }} ({{ a.especialidade }})</td>
-                            <td>{{ a.data.strftime('%d/%m/%Y') if a.data and hasattr(a.data, 'strftime') else a.data }} às {{ a.horario }}</td>
+                            <td>{{ a.data[8:10] }}/{{ a.data[5:7] }}/{{ a.data[0:4] }} às {{ a.horario }}</td>
                             <td>
                                 <form action="/cancelar/{{ a.id }}" method="POST" onsubmit="return confirm('Excluir este agendamento?');">
                                     <button type="submit" class="btn btn-danger btn-sm">Cancelar</button>
