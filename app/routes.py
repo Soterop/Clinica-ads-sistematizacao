@@ -67,11 +67,11 @@ def agendar():
             flash("Esse médico já tem paciente nesse horário.")
             return redirect(url_for('index'))
         
-    except Exception as e:
-        db.session.rollback()
-        flash('Erro ao agendar. Tente novamente.')
+ #   except Exception as e:
+  #      db.session.rollback()
+   #     flash('Erro ao agendar. Tente novamente.')
 
-    return redirect(url_for('index'))
+    # return redirect(url_for('index'))
 
 @app.route('/lista')
 def lista_agendamentos():
