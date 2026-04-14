@@ -56,6 +56,16 @@ def agendar():
         db.session.add(novo)
         db.session.commit()
         flash('Agendamento realizado com sucesso!')
+
+        conflito = Agendamento.query.filter_by(
+            data=data_escolhida, 
+            horario=hora_escolhida, 
+            profissional=medico_escolhido
+        ).first()
+
+        if conflito:
+            flash("Esse médico já tem paciente nesse horário.")
+            return redirect(url_for('index'))
         
     except Exception as e:
         db.session.rollback()
