@@ -42,7 +42,7 @@
                         <tr>
                             <td>{{ a.id }}</td>
                             <td>{{ a.nome }}</td>
-                            <td>{{ a.cpf }}</td>
+                            <td>{{ a.cpf[0:3] }}.{{ a.cpf[3:6] }}.{{ a.cpf[6:9] }}-{{ a.cpf[9:11] }}</td>
                             <td>{{ a.profissional }} ({{ a.especialidade }})</td>
                             <td>{{ a.data[8:10] }}/{{ a.data[5:7] }}/{{ a.data[0:4] }} às {{ a.horario }}</td>
                             <td>
