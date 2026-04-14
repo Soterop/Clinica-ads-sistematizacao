@@ -17,13 +17,7 @@
     <div class="container">
         <h2 class="mb-4">Todos os Agendamentos</h2>
 
-        {% with messages = get_flashed_messages() %}
-          {% if messages %}
-            {% for message in messages %}
-              <div class="alert alert-info">{{ message }}</div>
-            {% endfor %}
-          {% endif %}
-        {% endwith %}
+
 
         <div class="card shadow">
             <div class="card-body">
