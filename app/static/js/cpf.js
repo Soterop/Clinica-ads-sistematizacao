@@ -1,4 +1,4 @@
-// Limpa o CPF antes de enviar o formulário de busca
+
 document.querySelector('form').addEventListener('submit', function() {
     let cpfInput = this.querySelector('input[name="cpf"]');
     if (cpfInput) {

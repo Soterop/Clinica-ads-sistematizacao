@@ -19,8 +19,8 @@
     }
 
     :root {
-    --bs-primary: #16a085;       /* Sua nova cor principal */
-    --bs-primary-rgb: 22, 160, 133; /* A mesma cor em RGB (necessário para transparências) */
+    --bs-primary: #16a085;       
+    --bs-primary-rgb: 22, 160, 133; 
 }
 
 
@@ -63,7 +63,7 @@
     align-items: center;
     gap: 10px;
     
-    /* Transição suave caso você adicione efeitos de hover */
+    
     transition: transform 0.3s ease;
 }
 
