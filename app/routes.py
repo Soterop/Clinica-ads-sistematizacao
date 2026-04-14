@@ -67,7 +67,33 @@ def agendar():
 def lista_agendamentos():
     todos = Agendamento.query.all()
 
+    filtro_cpf = request.args.get('cpf')
+    filtro_prof = request.args.get('profissional')
+    filtro_data = request.args.get('data')
+
+
+    query = Agendamento.query
+
+
+    if filtro_cpf:
+        query = query.filter(Agendamento.cpf == filtro_cpf)
+    
+    if filtro_prof:
+        query = query.filter(Agendamento.profissional == filtro_prof)
+        
+    if filtro_data:
+        query = query.filter(Agendamento.data == filtro_data)
+
+    agendamentos = query.order_by(Agendamento.data.asc()).all()
+
+    profissionais = [a.profissional for a in Agendamento.query.with_entities(Agendamento.profissional).distinct()]
+
     return render_template('lista.html', agendamentos=todos)
+
+
+
+
+
 
 @app.route('/cancelar/<int:id_agendamento>', methods=['POST'])
 def cancelar(id_agendamento):

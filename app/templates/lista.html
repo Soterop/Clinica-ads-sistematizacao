@@ -18,6 +18,34 @@
         <h2 class="mb-4">Todos os Agendamentos</h2>
 
 
+<div class="card mb-4 shadow-sm">
+    <div class="card-body">
+        <h5 class="card-title">Filtros de Busca</h5>
+        <form method="GET" action="/lista" class="row g-3">
+            <div class="col-md-3">
+                <input type="text" name="cpf" class="form-control" placeholder="Buscar por CPF (só números)" value="{{ request.args.get('cpf', '') }}">
+            </div>
+            
+            <div class="col-md-3">
+                <select name="profissional" class="form-select">
+                    <option value="">Todos os Profissionais</option>
+                    {% for p in profissionais_lista %}
+                        <option value="{{ p }}" {% if request.args.get('profissional') == p %}selected{% endif %}>{{ p }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="col-md-3">
+                <input type="date" name="data" class="form-control" value="{{ request.args.get('data', '') }}">
+            </div>
+
+            <div class="col-md-3">
+                <button type="submit" class="btn btn-primary">Filtrar</button>
+                <a href="/lista" class="btn btn-secondary">Limpar</a>
+            </div>
+        </form>
+    </div>
+</div>
 
         <div class="card shadow">
             <div class="card-body">
@@ -32,6 +60,7 @@
                             <th>Ações</th>
                         </tr>
                     </thead>
+                    
                     <tbody>
                         {% for a in agendamentos %}
                         <tr>
