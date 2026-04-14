@@ -65,33 +65,39 @@ def agendar():
 
 @app.route('/lista')
 def lista_agendamentos():
-    todos = Agendamento.query.all()
-
+    # 1. Captura os filtros da URL
     filtro_cpf = request.args.get('cpf')
     filtro_prof = request.args.get('profissional')
     filtro_data = request.args.get('data')
 
-
+    # 2. Inicia a Query
     query = Agendamento.query
 
-
+    # 3. Aplica os filtros condicionalmente
     if filtro_cpf:
-        query = query.filter(Agendamento.cpf == filtro_cpf)
+        # Limpa o CPF digitado para buscar apenas números (igual ao que está no banco)
+        cpf_busca = ''.join(filter(str.isdigit, filtro_cpf))
+        if cpf_busca:
+            query = query.filter(Agendamento.cpf == cpf_busca)
     
     if filtro_prof:
         query = query.filter(Agendamento.profissional == filtro_prof)
         
     if filtro_data:
+        # Certifique-se que o formato da data no banco é o mesmo do input (YYYY-MM-DD)
         query = query.filter(Agendamento.data == filtro_data)
 
-    agendamentos = query.order_by(Agendamento.data.asc()).all()
+    # 4. Executa a busca filtrada e ordenada
+    agendamentos_filtrados = query.order_by(Agendamento.data.asc()).all()
 
-    profissionais = [a.profissional for a in Agendamento.query.with_entities(Agendamento.profissional).distinct()]
+    # 5. Lista de profissionais para o <select> do filtro
+    # Buscamos direto da sua lista fixa (PROFISSIONAIS) para garantir que apareçam todos
+    nomes_profissionais = [p['nome'] for p in PROFISSIONAIS]
 
-    return render_template('lista.html', agendamentos=todos)
-
-
-
+    # 6. RETORNO CORRETO: Enviando a lista filtrada para o template
+    return render_template('lista.html', 
+                           agendamentos=agendamentos_filtrados, 
+                           profissionais_lista=nomes_profissionais)
 
 
 
